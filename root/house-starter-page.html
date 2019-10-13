@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <style>
+            .container{ min-height: 100vh}
+        </style>
+     <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="panel-body">
+                    <a href="home-starter-page.html">
+                            <img src="./LOGOTGIF.jpg"  alt="tgif_logo" style="width:35%" class="img-responsive">
+                          </a>
+                          <p class="text-right" style="text-decoration: underline">
+                                <span class="glyphicon glyphicon-envelope"></span>
+                              <a href="mailto:info@tgif.net">info@tgif.net</a>
+                           </p>
+            </div>
+         <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+            <ul class="nav navbar-nav">
+              <li><a href="home-starter-page.html">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                <ul class="dropdown-menu">
+                  <li><a href="senate-starter-page.html">Senate</a></li>
+                  <li><a href="house-starter-page.html">House</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                <ul class="dropdown-menu">
+                  <li><a href="../root/Senate_Attendance_statistics.html">Senate</a></li>
+                  <li><a href="../root/House_Attendance_statistics.html">House</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                <ul class="dropdown-menu">
+                  <li><a href="../root/Senate_Loyalty_statistics.html">Senate</a></li>
+                  <li><a href="../root/House_Loyalty_statistic.html">House</a></li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </nav>        
+            <!--Table container-->
+            <div id="app" >
+            <!-- <div id="loader" v-if="isLoading">
+            <div id="myDiv" class="animate-bottom" v-if="!isLoading"> -->
+            <h2>Congressmen</h2>
+            <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+            <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every state is entitled to at least one representative. </p>
+              
+            <div class="container" >
+            <div class="Party">
+                    <div>Filter by Party:</div>
+                    
+                    <label class="form-checkbox">
+                        <input type="checkbox" value="R" v-model="party"> Republican
+                        <input type="checkbox" value="D" v-model="party"> Democrat
+                        <input type="checkbox" value="I" v-model="party"> Independent
+                      </label>
+                </div>
+                
+                <div class="pull-right">
+                    <div >Filter by State:</div>
+                  <form class="forState">
+                    <select v-model="selected" id="stateMenu" class="pull-right">
+                        
+                      <option value="all">--All--</option> 
+                        <template v-for="member in members">
+                            <option>{{member.state}}</option>
+                          </template>     
+                    </select>       
+                        
+                  </form>
+                </div>
+            
+            <div class="table-responsive">  
+            <table class="table" v-if='filtered.length != 0'>
+                <tbody>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Party</th>
+                      <th>State</th>
+                      <th>Total Votes</th>
+                  </tr>
+                  </thead>
+                  <tr v-for="member in filtered">
+                      <td> {{member.first_name}} {{member.last_name}} </td>
+                      <td>{{member.party}} </td>
+                     <td>{{member.state}} </td>
+                     <td>{{member.votes_with_party_pct}}</td>
+                  </tr>
+          </tbody>
+            </table>
+            <p v-if='filtered.length == 0'>{{message}}</p>
+        </div>
+      </div> 
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer fixed-bottom">
+            <p class="text-center">@TGIF|All Rights Reserved</p>
+        </div>
+        <!-- <script src="../root/houseData.js"></script>-->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>
+        <script src="./pro-congress-113-house.js"></script>
+       <!--<script>document.getElementbyId("houseData").innerHTML=JSON.stringify(data,null,2)</script>-->
+       </div>
+    </body>
+</html>

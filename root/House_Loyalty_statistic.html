@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <style>
+            .container{ min-height: 100vh}
+        </style>
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    </head>
+    
+    <body >
+            <div class="panel-group">
+            <div class="panel-body">
+                <a href="home-starter-page.html">
+                  <img src="./LOGOTGIF.jpg"  alt="tgif_logo" style="width:35%" class="img-responsive">
+                </a>
+               <p class="text-right" style="text-decoration: underline">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                  <a href="mailto:info@tgif.net">info@tgif.net</a>
+               </p>
+           </div>
+         <nav class="navbar navbar-default">
+          <div class="container-fluid">
+              <div class="navbar-header">
+            <ul class="nav navbar-nav">
+              <li><a href="home-starter-page.html">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113</a>
+                <ul class="dropdown-menu">
+                  <li><a href="senate-starter-page.html">Senate</a></li>
+                  <li><a href="house-starter-page.html">House</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance</a>
+                <ul class="dropdown-menu">
+                  <li><a href="Senate_Attendance_statistics.html">Senate</a></li>
+                  <li><a href="House_Attendance_statistics.html">House</a></li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty</a>
+                <ul class="dropdown-menu">
+                  <li><a href="Senate_Loyalty_statistics.html">Senate</a></li>
+                  <li><a href="House_Loyalty_statistic.html">House</a></li>
+                </ul>
+              </li>
+            </ul>
+            </div>
+          </div>
+        </nav>  
+        </div>          
+  
+
+        <header>            
+            <div>
+            </div>
+        </header>
+        <!--Table container-->
+        <div id="app">
+        <!-- <div id="loader"></div>
+        <div style="display:none;" id="myDiv" class="animate-bottom"> -->
+        <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <h2>Party Loyalty</h2>
+                <p>Those who consider themselves to be strong partisans, strong Democrats and strong Republicans respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that backs their party's agenda. </p>
+               </div>
+            
+           <div class="col-sm-6">
+            <h2>House at a glance</h2>
+      
+            <table class="table1">
+
+                <tbody>
+                    <thead>
+                      <tr>
+                        <th>Party</th>
+                        <th>N. of Responses</th>
+                        <th>% Votes with Party</th>
+                      </tr>
+                    </thead>
+                    <tr>
+                      <td>Democrat</td>
+                      <td>{{number_dem}}</td>
+                      <td>{{average_dem+"%"}}</td>
+                      </tr>
+                    <tr>
+                      <td>Republican</td>
+                      <td>{{number_rep}}</td>
+                      <td>{{average_rep+"%"}}</td>
+                    </tr>
+                    <tr>
+                      <td>Indipendent</td>
+                      <td>{{number_ind}}</td>
+                      <td>0%</td>
+                      </tr>
+                    <tr>
+                      <td>Total</td>
+                      <td>{{number_dem+number_rep+number_ind}}</td>
+                     <td>{{total_average + "%"}}</td> 
+                    </tr>
+                  </tbody>
+             </table>
+               
+              </div>
+            
+            
+        </div>
+        
+        <hr class="style1">
+        
+        <div class="row">
+            <div class="col-sm-6">
+            <h2>Least Loyal (Bottom 10% of Party)</h2>
+            <table id="table4" class="table4">
+                <tbody></tbody>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number Party Votes</th>
+                        <th>% Party Votes</th>
+                    </tr>
+                    </thead>
+                    <tr v-for="member in leastLoyal">
+                        <td>{{member.last_name +" "+ member.first_name}}</td>
+                        <td>{{member.total_votes}}</td>
+                        <td>{{member.votes_with_party_pct+"%"}}</td>
+                      </tr>
+                    </tbody>
+            </table>
+        </div>
+           <div class="col-sm-6">
+            <h2>Most Loyal (Top 10% of Party)</h2>
+            <table class="table5">
+                <tbody>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Number Party Votes</th>
+                        <th>% Party Votes</th>
+                    </tr>
+                </thead>
+                
+                <tr v-for="member in mostLoyal">
+                    <td>{{member.last_name +" "+ member.first_name}}</td>
+                    <td>{{member.total_votes}}</td>
+                    <td>{{member.votes_with_party_pct+"%"}}</td>
+                </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+      <div class="panel-footer">
+        <p class="text-center">@TGIF|All Rights Reserved</p>
+        </div>   
+      </div>
+        <!-- <script src="../root/houseData.js"></script> -->
+        <script src="https://unpkg.com/vue/dist/vue.js"></script>   
+        <script src="House_statistic.js"></script>
+      
+</body>
+</html>
